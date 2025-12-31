@@ -1,0 +1,87 @@
+.recognize-face-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.mode-info {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.mode-info h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.mode-info p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.camera-controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.btn {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+  background: #f44336;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #d32f2f;
+  transform: translateY(-2px);
+}
+
+.recognition-info {
+  text-align: center;
+  margin-top: 20px;
+  padding: 15px;
+  background: #e8f5e9;
+  border-radius: 8px;
+}
+
+.recognition-info p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.recognition-info .note {
+  font-size: 0.9rem;
+  color: #999;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .recognize-face-container {
+    padding: 10px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
