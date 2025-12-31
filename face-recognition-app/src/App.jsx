@@ -34,8 +34,9 @@ function App() {
       <footer className="app-footer">
         <p>Phase 1: Camera Integration & Basic UI ✅</p>
         <p>Phase 2: Face Detection with face-api.js ✅</p>
+        <p>Phase 3: Save Face Functionality + LocalStorage ✅</p>
         <p className="footer-note">
-          Next: Phase 3 - Save Face Functionality + LocalStorage
+          Next: Phase 4 - Recognition Functionality + Face Matching
         </p>
       </footer>
     </div>
