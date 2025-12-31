@@ -164,6 +164,233 @@
   margin: 5px 0;
 }
 
+.no-faces-warning {
+  padding: 12px;
+  margin: 15px 0;
+  border-radius: 6px;
+  background: #fff3e0;
+  color: #f57c00;
+  text-align: center;
+}
+
+.settings-info {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.settings-info p {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* Recognition Settings */
+.recognition-settings {
+  margin: 20px 0;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.threshold-control {
+  text-align: center;
+}
+
+.threshold-control label {
+  display: block;
+  margin-bottom: 15px;
+  color: #555;
+  font-size: 1rem;
+}
+
+.threshold-slider {
+  width: 100%;
+  max-width: 400px;
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(to right, #f44336, #ff9800, #4caf50);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.threshold-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid #667eea;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.threshold-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid #667eea;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.threshold-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #999;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Recognition Results */
+.recognition-results {
+  margin-top: 20px;
+}
+
+.recognition-results h3 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.result-card {
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 2px solid #e0e0e0;
+  transition: all 0.3s ease;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.result-card.matched {
+  border-color: #4caf50;
+  background: linear-gradient(to bottom, #e8f5e9 0%, white 50%);
+}
+
+.result-card.unknown {
+  border-color: #ff9800;
+  background: linear-gradient(to bottom, #fff3e0 0%, white 50%);
+}
+
+.result-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.result-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.result-card.matched .result-icon {
+  background: #4caf50;
+  color: white;
+}
+
+.result-card.unknown .result-icon {
+  background: #ff9800;
+  color: white;
+}
+
+.result-icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.result-info {
+  flex: 1;
+}
+
+.result-name {
+  margin: 0 0 5px 0;
+  color: #333;
+  font-size: 1.3rem;
+}
+
+.result-status {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.result-details {
+  padding-top: 15px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.detail-label {
+  color: #666;
+  font-weight: 500;
+}
+
+.detail-value {
+  color: #333;
+  font-weight: 600;
+}
+
+.detail-value.confidence {
+  color: #4caf50;
+}
+
+.confidence-level {
+  font-size: 0.85rem;
+  color: #999;
+  font-weight: normal;
+  margin-left: 5px;
+}
+
+.confidence-bar {
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 15px;
+}
+
+.confidence-fill {
+  height: 100%;
+  background: linear-gradient(to right, #4caf50, #8bc34a);
+  transition: width 0.3s ease;
+  border-radius: 4px;
+}
+
+.unknown-hint {
+  color: #666;
+  font-size: 0.95rem;
+  font-style: italic;
+  margin: 0;
+}
+
 @media (max-width: 768px) {
   .recognize-face-container {
     padding: 10px;
@@ -172,5 +399,22 @@
   .btn {
     padding: 10px 20px;
     font-size: 0.9rem;
+  }
+
+  .camera-controls {
+    flex-direction: column;
+  }
+
+  .threshold-slider {
+    max-width: 100%;
+  }
+
+  .result-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .result-name {
+    font-size: 1.1rem;
   }
 }
