@@ -57,11 +57,11 @@
 }
 
 .recognition-info {
-  text-align: center;
   margin-top: 20px;
-  padding: 15px;
-  background: #e8f5e9;
+  padding: 20px;
+  background: white;
   border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .recognition-info p {
@@ -73,6 +73,95 @@
   font-size: 0.9rem;
   color: #999;
   font-style: italic;
+}
+
+.loading-models,
+.detection-error {
+  padding: 12px;
+  margin: 15px 0;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.loading-models {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.detection-error {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.detection-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.status-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ccc;
+}
+
+.status-indicator.active {
+  background: #4caf50;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.face-count {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.instruction {
+  color: #666;
+  font-style: italic;
+  text-align: center;
+}
+
+.detection-active {
+  padding: 15px;
+  background: #e3f2fd;
+  border-radius: 6px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.detection-active .info {
+  color: #1976d2;
+  font-weight: 500;
+  margin: 5px 0;
+}
+
+.detection-active .note {
+  color: #666;
+  font-size: 0.9rem;
+  font-style: italic;
+  margin: 5px 0;
 }
 
 @media (max-width: 768px) {
