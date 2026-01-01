@@ -1,0 +1,39 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f5f5f5;
+}
+
+.app-main {
+  flex: 1;
+  padding: 30px 20px;
+}
+
+.app-footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: auto;
+}
+
+.app-footer p {
+  margin: 5px 0;
+}
+
+.footer-note {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+@media (max-width: 768px) {
+  .app-main {
+    padding: 20px 10px;
+  }
+
+  .app-footer {
+    padding: 15px;
+    font-size: 0.9rem;
+  }
+}
