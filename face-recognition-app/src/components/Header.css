@@ -1,53 +1,167 @@
 .app-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+  padding: var(--space-6) var(--space-4);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  animation: slideDown 0.4s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .app-title {
-  margin: 0 0 20px 0;
+  margin: 0 0 var(--space-6) 0;
   font-size: 2rem;
-  font-weight: 600;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--primary-600) 0%, var(--secondary-600) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.app-title::before {
+  content: '👤';
+  font-size: 2.5rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 .mode-selector {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: var(--space-3);
   flex-wrap: wrap;
+  background: var(--gray-100);
+  padding: var(--space-2);
+  border-radius: var(--radius-full);
+  max-width: fit-content;
+  margin: 0 auto;
 }
 
 .mode-btn {
-  padding: 10px 20px;
-  border: 2px solid white;
+  padding: var(--space-3) var(--space-6);
+  border: none;
   background: transparent;
-  color: white;
-  border-radius: 25px;
-  font-size: 1rem;
-  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: var(--radius-full);
+  font-size: 0.9375rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
 }
 
-.mode-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateY(-2px);
+.mode-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  z-index: -1;
+}
+
+.mode-btn:hover:not(.active) {
+  background: white;
+  color: var(--text-primary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
 }
 
 .mode-btn.active {
-  background: white;
-  color: #667eea;
+  background: linear-gradient(135deg, var(--primary-600), var(--secondary-600));
+  color: white;
+  box-shadow:
+    0 4px 6px -1px rgba(99, 102, 241, 0.3),
+    0 2px 4px -1px rgba(99, 102, 241, 0.2);
+  transform: scale(1.02);
+}
+
+.mode-btn.active::before {
+  opacity: 1;
+}
+
+/* Icon indicators */
+.mode-btn::after {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-left: var(--space-2);
+  background: currentColor;
+  opacity: 0;
+  transform: scale(0);
+  transition: all var(--transition-base);
+}
+
+.mode-btn.active::after {
+  opacity: 1;
+  transform: scale(1);
 }
 
 @media (max-width: 768px) {
+  .app-header {
+    padding: var(--space-5) var(--space-3);
+  }
+
   .app-title {
     font-size: 1.5rem;
+    margin-bottom: var(--space-4);
+  }
+
+  .app-title::before {
+    font-size: 2rem;
+  }
+
+  .mode-selector {
+    gap: var(--space-2);
+    padding: var(--space-1);
   }
 
   .mode-btn {
-    padding: 8px 16px;
-    font-size: 0.9rem;
+    padding: var(--space-2) var(--space-4);
+    font-size: 0.875rem;
+  }
+
+  .mode-btn::after {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mode-selector {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .mode-btn {
+    flex: 1;
+    min-width: 0;
   }
 }

@@ -1,43 +1,53 @@
 .camera-container {
   width: 100%;
-  max-width: 640px;
+  max-width: 720px;
   margin: 0 auto;
   position: relative;
+  animation: scaleIn 0.4s ease-out;
 }
 
 .camera-error,
 .camera-loading {
-  padding: 20px;
+  padding: var(--space-5);
   text-align: center;
-  border-radius: 8px;
-  margin-bottom: 20px;
+  border-radius: var(--radius-xl);
+  margin-bottom: var(--space-5);
+  font-weight: 500;
+  animation: slideUp 0.3s ease-out;
 }
 
 .camera-error {
-  background-color: #fee;
-  color: #c00;
-  border: 1px solid #fcc;
+  background: linear-gradient(135deg, #fee 0%, #fdd 100%);
+  color: var(--error-600);
+  border: 2px solid var(--error-300);
+  box-shadow: var(--shadow-md);
 }
 
 .camera-loading {
-  background-color: #e3f2fd;
-  color: #1976d2;
-  border: 1px solid #bbdefb;
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  color: var(--primary-600);
+  border: 2px solid var(--primary-200);
+  box-shadow: var(--shadow-md);
 }
 
 .video-wrapper {
   position: relative;
   width: 100%;
-  background: #000;
-  border-radius: 8px;
+  background: var(--gray-950);
+  border-radius: var(--radius-2xl);
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.2),
+    0 10px 10px -5px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  border: 3px solid rgba(255, 255, 255, 0.2);
 }
 
 .camera-video {
   width: 100%;
   height: auto;
   display: block;
+  object-fit: cover;
 }
 
 .camera-canvas {
@@ -47,11 +57,47 @@
   width: 100%;
   height: 100%;
   pointer-events: none;
+  z-index: 10;
+}
+
+/* Recording indicator */
+.video-wrapper::before {
+  content: '';
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 12px;
+  height: 12px;
+  background: var(--error-500);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 3px rgba(239, 68, 68, 0.3),
+    0 0 10px rgba(239, 68, 68, 0.5);
+  z-index: 20;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
 }
 
 @media (max-width: 768px) {
   .camera-container {
     max-width: 100%;
-    padding: 0 10px;
+    padding: 0;
+  }
+
+  .video-wrapper::before {
+    width: 10px;
+    height: 10px;
+    top: var(--space-3);
+    right: var(--space-3);
   }
 }
